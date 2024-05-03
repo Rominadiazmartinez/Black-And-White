@@ -30,7 +30,6 @@ app.get("/imagen", async(req, res) =>{
         .resize(350, Jimp.AUTO)
         .greyscale()
         .writeAsync(__dirname + `/assets/${nombre}.jpg`)
-        console.log(imagen)
          const imagenData = fs.readFileSync(__dirname + `/assets/${nombre}.jpg`) 
          
          res.send(imagenData)
@@ -39,7 +38,7 @@ app.get("/imagen", async(req, res) =>{
            console.error(err);
          });
     } catch (error) {
-        console.log(error)
+
         res.send(error)
     }
 })
